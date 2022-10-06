@@ -1,19 +1,23 @@
 var today = moment().format('MMMM Do YYYY, h:mm a');
 console.log(today);
 
-
+//function that will display the current day via moments method
 function showDate(){
     var currentDay = $("#current-day");
     currentDay.text(today);
 }
 
+
+//create a function that parses a string argument into an integer
+//and compares the block hour to the current hour to determine if
+//the current time is past, present, or future, for styling purposes
 $(".time-block").each(function(){
 
     var blockHour = parseInt($(this).attr("id"));
     var currentHour = moment().hours();
 
-    console.log("Block Hour: "+blockHour);
-    console.log("Current Hour: "+currentHour);
+    console.log("Block Hour: " + blockHour);
+    console.log("Current Hour: " + currentHour);
 
     if(blockHour === currentHour)
     {
@@ -31,6 +35,7 @@ $(".time-block").each(function(){
     }
 });
 
+//eventListener that allows user to locally store entries
 $(".saveBtn").on("click", function(){
     var task = $(this).siblings(".description").val();
     var time = $(this).parent().attr("id");
@@ -38,9 +43,10 @@ $(".saveBtn").on("click", function(){
     localStorage.setItem(time, task);
 })
 
-for(var i=9; i<13; i++)
+//iteration that cycles through a for loop from 9 am to 6 pm
+for(var i = 9; i < 18; i++)
 {
-    $("#"+i+" .description").val(localStorage.getItem(i));
+    $("#" + i + " .description").val(localStorage.getItem(i));
 }
 
 showDate();
