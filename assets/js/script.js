@@ -29,13 +29,17 @@ $(".time-block").each(function(){
         $(this).addClass("past");
     }
     else{
+        //remove class method removes previously assigned classes
+        //that may clash with repeats
         $(this).removeClass("present");
         $(this).removeClass("past");
         $(this).addClass("future");
     }
 });
 
-//eventListener that allows user to locally store entries
+//eventListener that allows end user to save on click of button
+//variable declared as task that gets the value of siblings
+//falling under parent attribute of "id", which would be the hour
 $(".saveBtn").on("click", function(){
     var task = $(this).siblings(".description").val();
     var time = $(this).parent().attr("id");
