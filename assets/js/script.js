@@ -1,4 +1,4 @@
-var today = moment().format('MMMM Do YYYY, h:mm a');
+var today = moment().format('MMMM Do, YYYY');
 console.log(today);
 
 //function that will display the current day via moments method
