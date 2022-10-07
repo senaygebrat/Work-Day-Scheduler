@@ -48,7 +48,7 @@ $(".saveBtn").on("click", function(){
 })
 
 //iteration that cycles through a for loop from 9 am to 6 pm
-for(var i = 9; i < 18; i++)
+for(var i = 9; i < 19; i++)
 {
     $("#" + i + " .description").val(localStorage.getItem(i));
 }
